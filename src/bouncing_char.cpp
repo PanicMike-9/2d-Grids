@@ -1,6 +1,7 @@
 #include <iostream>
 #include <thread>
 #include <chrono>
+#include "ansi.hpp"
 
 constexpr int MAX_TIME = 50;
 
@@ -15,14 +16,15 @@ void grid_2d(int i, int j)
 
     while(true)
     {
-        system("clear");
+        std::cout << ansi::clear_screen << std::flush;
         // grid loop
         for(int i = 0; i < max_i; ++i)
         {
             for(int j = 0; j < max_j; ++j)
             {
-                if(i == y && j == x) std::cout << "@ ";
-                else std::cout << ". ";
+                if(i == y && j == x) std::cout << ansi::bright_red << "@ " 
+                                               << ansi::reset;
+                else std::cout << ansi::bright_green << ". ";
             }
             std::cout << '\n';
         }
@@ -32,8 +34,8 @@ void grid_2d(int i, int j)
         y += dir_y;
 
         // bounce off walls
-        if(x == 0 || x == max_i - 1) dir_x *= -1;
-        if(y == 0 || y == max_j - 1) dir_y *= -1;
+        if(x == 0 || x == max_j - 1) dir_x *= -1;
+        if(y == 0 || y == max_i - 1) dir_y *= -1;
 
         // wait for/sleep_for
         std::this_thread::sleep_for(std::chrono::milliseconds(MAX_TIME));
