@@ -3,7 +3,7 @@
 #include <chrono>
 #include "ansi.hpp"
 
-constexpr int MAX_TIME = 50;
+constexpr int MAX_TIME = 100;
 
 void grid_2d(int i, int j)
 {
@@ -16,7 +16,7 @@ void grid_2d(int i, int j)
 
     while(true)
     {
-        std::cout << ansi::clear_screen << std::flush;
+        std::cout << ansi::move(10, 1); 
         // grid loop
         for(int i = 0; i < max_i; ++i)
         {
@@ -39,6 +39,7 @@ void grid_2d(int i, int j)
 
         // wait for/sleep_for
         std::this_thread::sleep_for(std::chrono::milliseconds(MAX_TIME));
+        std::cout << ansi::reset;
     }
 
 //    // values output
