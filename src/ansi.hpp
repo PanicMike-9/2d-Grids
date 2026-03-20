@@ -23,6 +23,24 @@ namespace ansi
     constexpr const char* bright_cyan = "\033[96m";
     constexpr const char* bright_white = "\033[97m";
 
+    // color normal background
+    constexpr const char* bg_black = "\033[40m";
+    constexpr const char* bg_red = "\033[41m";
+    constexpr const char* bg_green = "\033[42m";
+    constexpr const char* bg_yellow = "\033[43m";
+    constexpr const char* bg_blue = "\033[44m";
+    constexpr const char* bg_magenta = "\033[45m";
+    constexpr const char* bg_cyan = "\033[46m";
+    constexpr const char* bg_white = "\033[47m";
+
+    // text style
+    constexpr const char* bold = "\033[1m";
+    constexpr const char* dim = "\033[2m";
+    constexpr const char* italic = "\033[3m";
+    constexpr const char* underline = "\033[4m";
+    constexpr const char* inverse = "\033[7m";
+    constexpr const char* strike_through = "\033[9m";
+
     // cursor position
     inline std::string move(int row, int col)
     {
@@ -30,8 +48,12 @@ namespace ansi
                        + std::to_string(col) + "H";
     }
 
-    // clear screen
+    // clear 
     constexpr const char* clear_screen = "\033[2J\033[H";
+    constexpr const char* clear_line = "\033[2K";
+    constexpr const char* hide_cursor = "\033[?25l";
+    constexpr const char* show_cursor = "\033[?25h";
+    constexpr const char* home = "\033[H";
 
     // reset all
     constexpr const char* reset = "\033[0m";
