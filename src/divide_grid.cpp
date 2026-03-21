@@ -2,6 +2,7 @@
 #include <chrono>
 #include <thread>
 #include <cmath>
+#include "ansi.hpp"
 
 constexpr int MAX_TIME = 100;
 
@@ -9,16 +10,13 @@ void divide_grid(int x, int y)
 {
     int max_x{x};
     int max_y{y};
-    
-    int sum_x{0};
-    int sum_y{0};
 
     int time{0};
     
     while(true)
     {
-        // add smooth transition        
-        std::cout << "\033[H\033[J" << std::flush;
+        // add animation position       
+        std::cout << ansi::move(10, 1);
 
         // outputs columns
         for(int y{0}; y != max_y; ++y)
@@ -42,22 +40,15 @@ void divide_grid(int x, int y)
                 {
                     std::cout << "🟨";
                 }
-                //sum_x++;
             }
-                std::cout << "\033[0m" << std::flush;
-            
+                std::cout << ansi::reset;           
+
             std::cout << '\n';
-            //sum_y++;
         }
         
         std::this_thread::sleep_for(std::chrono::milliseconds(MAX_TIME));
         time = (time + 1) % max_x;
     }
-    
-    // output grid value
-    std::cout << "total row(x): " << sum_x << '\n'
-              << "total col(y): " << sum_y << '\n'
-              << "initial rows(x): " << sum_x / sum_y << '\n';
 }
 
 int main() 
