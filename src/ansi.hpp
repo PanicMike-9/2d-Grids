@@ -1,15 +1,6 @@
 #pragma once
 #include <string>
 
-/*
-constexpr const char* CLEAR_SCREEN = "\033[2J\033[H"; // ANSI code to clear terminal
-constexpr const char* ANSI_GREEN = "\033[38;2;0;255;0m"; // ANSI code for Green color
-constexpr const char* ANSI_RESET = "\033[0m"; // ANSI code for reset text format
-constexpr const char* HIDE_CURSOR = "\033[?25l"; // ANSI code to hide cursor
-constexpr const char* SHOW_CURSOR = "\033[?25h"; // ANSI code to show cursor again
-constexpr const char* ALT_SCREEN = "\033[?1049h"; // ANSI code for alternate screen
-constexpr const char* MAIN_SCREEN = "\033[?1049l"; // ANSI code to restore main screen
- */
 namespace ansi
 {
     // color normal foreground
@@ -67,7 +58,7 @@ namespace ansi
     // alternate screen
     constexpr const char* alt_screen = "\033[?1049h";
     constexpr const char* main_screen = "\033[?1049l";
-
+    
     // reset all
     constexpr const char* reset = "\033[0m";
 }
