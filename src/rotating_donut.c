@@ -1,3 +1,7 @@
+/*
+ * This code is written by a1k0n and I copied it from a1k0n.net to learn how 3d grids work and how rotation of the grids work
+ *
+ */
 #include <stdint.h>
 #include <stdio.h>
 #include <string.h>
