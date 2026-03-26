@@ -1,6 +1,5 @@
 /*
  * This code is written by a1k0n and I copied it from a1k0n.net to learn how 3d grids work and how rotation of the grids work
- *
  */
 #include <stdint.h>
 #include <stdio.h>
@@ -17,23 +16,25 @@
 
 int8_t b[1760], z[1760];
 
-void main()
+int main(void)
 {
     int sA = 1024, cA = 0, sB = 1024, cB = 0, _;
 
-    for(;;) 
+    for(;;) // k(hat) loop, z axis
     {
-        memset(b, 32, 1760); // text buffer
+        // text buffer
+        memset(b, 32, 1760);        
         memset(z, 127, 1760);
         
         int sj = 0, cj = 1024;
 
-        for(int j = 0; j < 90; ++j)
+        for(int j = 0; j < 90; ++j) // j(hat) loop, y axis
         {
             int si = 0, ci = 1024; // sine and cosine of angle i
 
-            for(int i = 0; i < 324; ++i)
+            for(int i = 0; i < 324; ++i) // i(hat) loop, x axis
             {
+                //int R1 = 1, R2 = 2048, K2 = 5120 * 1024;
                 int R1 = 1, R2 = 2048, K2 = 5120 * 1024;
 
                 int x0 = R1 * cj + R2,
@@ -46,15 +47,14 @@ void main()
                     x7 = cj * si >> 10,
                     x = 40 + 30 * (cB * x1 - sB * x4) / x6,
                     y = 12 + 15 * (cB * x4 + sB * x1) / x6,
-                    N = (-cA * x7 - cB * ((-sA * x7 >> 10) + x2) - ci * (cj * sB >> 10)
-                            >> 10) - x5 >> 7;
+                    N = (-cA * x7 - cB * ((-sA * x7 >> 10) + x2) - ci * (cj * sB >> 10) >> 10) - x5 >> 7;
 
                 int o = x + 80 * y;
                 int8_t zz = (x6 - K2) >> 15;
                 if(22 > y && y > 0 && x > 0 && 80 > x && zz < z[o])
                 {
                     z[o] = zz;
-                    b[o] =  ".,-~:;=!*#$@"[N > 0 ? N : 0];
+                    b[o] =  "123456789abc"[N > 0 ? N : 0];
                 }
 
                 R(5, 8, ci, si) // rotate i
