@@ -16,8 +16,9 @@ class Conway
     private:
         int rows;
         int cols;
-        std::vector<std::vector<int>> curr_grid; // vector grid
-        std::vector<std::vector<int>> next_grid; // vector grid
+        // vector grid
+        std::vector<std::vector<int>> curr_grid; 
+        std::vector<std::vector<int>> next_grid; 
 
         int count_neighbors(int r, int c) const;
 };
