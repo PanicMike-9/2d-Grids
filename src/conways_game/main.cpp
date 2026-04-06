@@ -4,7 +4,7 @@
 
 int main()
 {
-    Conway grid(20, 20); 
+    Conway grid(40, 40); 
     grid.generate_random();
 
     while(true)

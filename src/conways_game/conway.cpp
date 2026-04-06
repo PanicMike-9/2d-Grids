@@ -16,6 +16,8 @@ Conway::Conway(int rows, int cols) : rows{rows}, cols{cols}
         next_grid[i].resize(cols);
     }
 
+    // generation count after each update
+    generation = 0;
 }
 
 void Conway::generate_random()
@@ -86,6 +88,7 @@ void Conway::update()
     }
 
     curr_grid = next_grid;
+    generation++;
 }
 
 void Conway::display() const
@@ -97,9 +100,11 @@ void Conway::display() const
         for(int c = 0; c < cols; ++c)
         {
             if(curr_grid[r][c] == 1) std::cout << "🔴";
-            else std::cout << "⚪";
+            else std::cout << "⚫";
         }
 
         std::cout << '\n';
     }
+
+    std::cout << "GENERATIONS: " << generation << '\n';
 }
