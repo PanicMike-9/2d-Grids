@@ -1,7 +1,6 @@
-#include <vector>
+#pragma once
 
-#ifndef CONWAY_HPP
-#define CONWAY_HPP
+#include <vector>
 
 class Conway
 {
@@ -16,6 +15,7 @@ class Conway
     private:
         int rows;
         int cols;
+        int generation;
         // vector grid
         std::vector<std::vector<int>> curr_grid; 
         std::vector<std::vector<int>> next_grid; 
@@ -23,4 +23,3 @@ class Conway
         int count_neighbors(int r, int c) const;
 };
 
-#endif
