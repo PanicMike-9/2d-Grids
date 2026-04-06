@@ -27,8 +27,8 @@ void Conway::generate_random()
     {
         for(int c = 0; c < cols; ++c)
         {
-            // 20% chance of 1 or 0
-            curr_grid[r][c] = (std::rand() % 5 == 0) ? 1 : 0;
+            // 50% chance of 1 or 0
+            curr_grid[r][c] = (std::rand() % 2 == 0) ? 1 : 0;
         }
     }
 }
@@ -90,14 +90,14 @@ void Conway::update()
 
 void Conway::display() const
 {
-    std::cout << ansi::move(10, 1);
+    std::cout << ansi::move(5, 1);
 
     for(int r = 0; r < rows; ++r)
     {
         for(int c = 0; c < cols; ++c)
         {
-            if(curr_grid[r][c] == 1) std::cout << "🟥";
-            else std::cout << "⬜";
+            if(curr_grid[r][c] == 1) std::cout << "🔴";
+            else std::cout << "⚪";
         }
 
         std::cout << '\n';
