@@ -9,8 +9,8 @@ class Conway
         // constructor
         Conway(int rows, int cols);
 
+        void generate_random();
         void update();
-
         void display() const;
 
     private:
