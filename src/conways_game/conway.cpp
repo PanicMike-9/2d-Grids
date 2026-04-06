@@ -87,24 +87,33 @@ void Conway::update()
         }
     }
 
+    // set the curr_grid to next_grid for correct calcuations
     curr_grid = next_grid;
     generation++;
 }
 
 void Conway::display() const
 {
-    std::cout << ansi::move(5, 1);
+    std::string alive_symbol;
+    std::string dead_symbol = "⚪";
+
+    std::cout << ansi::move(5, 1); // from ansi.hpp
+    std::cout << "GENERATIONS: " << generation << '\n';
+
+    // color cycle based on generation count
+    if(generation % 100 < 25) alive_symbol = "🔴";
+    else if(generation % 100 < 50) alive_symbol = "🟠";
+    else if(generation % 100 < 75) alive_symbol = "🟢";
+    else alive_symbol = "🔵";
 
     for(int r = 0; r < rows; ++r)
     {
         for(int c = 0; c < cols; ++c)
         {
-            if(curr_grid[r][c] == 1) std::cout << "🔴";
-            else std::cout << "⚫";
+            if(curr_grid[r][c] == 1) std::cout << alive_symbol;
+            else std::cout << dead_symbol;
         }
 
         std::cout << '\n';
     }
-
-    std::cout << "GENERATIONS: " << generation << '\n';
 }
