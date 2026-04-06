@@ -95,14 +95,14 @@ void Conway::update()
 void Conway::display() const
 {
     std::string alive_symbol;
-    std::string dead_symbol = "⚪";
+    std::string dead_symbol = "⭕";
 
     std::cout << ansi::move(5, 1); // from ansi.hpp
     std::cout << "GENERATIONS: " << generation << '\n';
 
     // color cycle based on generation count
-    if(generation % 100 < 25) alive_symbol = "🔴";
-    else if(generation % 100 < 50) alive_symbol = "🟠";
+    if(generation % 100 < 25) alive_symbol = "⚪";
+    else if(generation % 100 < 50) alive_symbol = "🟣";
     else if(generation % 100 < 75) alive_symbol = "🟢";
     else alive_symbol = "🔵";
 
