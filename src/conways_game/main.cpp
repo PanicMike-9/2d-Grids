@@ -12,9 +12,8 @@ int main()
         grid.display();
         grid.update();
 
-        std::this_thread::sleep_for(std::chrono::milliseconds(100));
+        std::this_thread::sleep_for(std::chrono::milliseconds(100)); // time between each frame
     }
-
 
     return 0;
 }
